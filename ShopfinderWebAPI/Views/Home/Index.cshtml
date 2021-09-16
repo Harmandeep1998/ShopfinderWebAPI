@@ -1,0 +1,104 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <button class="btn btn-dark" data-toggle="modal" data-target="#add">New Schedule</button>
+</div>
+<hr />
+<div class="row" id="all_records">
+
+</div>
+
+<!-- Add Shop Modal Dialog Box -->
+<div class="modal" role="dialog" id="add">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title ">Add New Shop</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="shop_name">Enter Shop Name: </label>
+                        <input type="text" class="form-control" id="shop_name" />
+                    </div>
+                    <div class="form-group">
+                        <label for="shop_address">Enter Address: </label>
+                        <textarea class="form-control" id="shop_address"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="shop_details">Enter Shop Details: </label>
+                        <textarea class="form-control" id="shop_details"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="shop_contact_no">Enter Contact No: </label>
+                        <input type="text" class="form-control" id="shop_contact_no" />
+                    </div>
+                    <div class="form-group" id="result">
+
+                    </div>
+                    <button type="button" onclick="addNewShop()" class="btn btn-dark">Save Shop Details</button>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Edit Shop Modal Dialog Box -->
+<div class="modal" tabindex="-1" role="dialog" id="edit">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title ">Edit Shop Details</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                      <div class="form-group">
+                        <label for="shop_name_edit">Enter Shop Name: </label>
+                        <input type="text" class="form-control" id="shop_name_edit" />
+                        <input type="hidden" id="shop_id" />
+                    </div>
+                    <div class="form-group">
+                        <label for="shop_address_edit">Enter Address: </label>
+                        <textarea class="form-control" id="shop_address_edit"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="shop_details_edit">Enter Shop Details: </label>
+                        <textarea class="form-control" id="shop_details_edit"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="shop_contact_no_edit">Enter Contact No: </label>
+                        <input type="text" class="form-control" id="shop_contact_no_edit" />
+                    </div>
+                    <div class="form-group" id="edit_result">
+
+                    </div>
+                    <button type="button" onclick="updateShopDetails()" class="btn btn-dark">Update Shop Details</button>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+            displayAllShops();
+        });
+    </script>
+}
